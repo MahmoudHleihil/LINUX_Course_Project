@@ -1,0 +1,25 @@
+   43  git branch BR_Q3
+   44  git checkout BR_Q3
+   45  touch menu.sh
+   46  git branch BR_CSV
+   47  git checkout BR_CSV
+   48  mv menu.sh Work/Q3
+   49  cd Work/Q3
+   50  chmod 755 menu.sh 
+   51  ./menu.sh 
+   52  rm *.png
+   53  rm *.csv
+   54  rm history.log 
+   55  clear
+   56  ./menu.sh 
+   57  git add .
+   58  git commit -m "Q3 - Creating a menu in BASH"
+   59  git checkout main
+   60  git checkout BR_Q3
+   61  cd ../..
+   62  git merge BR_Q3
+   63  git merge BR_CSV
+   64  git merge BR_Q3
+   65  git merge BR_CSV
+   66  cd Work/Q3/
+   67  history > linux_history.log
