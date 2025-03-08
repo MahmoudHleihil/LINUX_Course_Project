@@ -1,0 +1,38 @@
+    1  git branch BR_Q2
+    2  git checkout BR_Q2
+    3  cp DOWNLOADS/LINUX_COURSE_WORK-downloads/plant.py Work/Q2/
+    4  cd Work/Q2/
+    5  pip install matplotlib
+    6  python plant.py 
+    7  python3 plant.py 
+    8  rm Rose_histogram.png 
+    9  rm Rose_line_plot.png 
+   10  rm Rose_scatter.png 
+   11  clear
+   12  python3 plant.py 
+   13  mkdir -p Diagrams_1
+   14  mv *.png Diagrams_1/
+   15  zip -r ../../BACKUPS/diagrams_$(date +"%Y%m%d_%H%M%S").zip Diagrams_1/
+   16  tar -czf ../../BACKUPS/diagrams_$(date +"%Y%m%d_%H%M%S").zip Diagrams_1/
+   17* tar -czf ../../BACKUPS/diagrams_$(date +"%Y/%m/%d_%H/%M/%S").zip Diagrams_2/
+   18  git add .
+   19  cd ..
+   20  git add .
+   21  git commit -m "Q2 - Added plant data analysis and diagrams"
+   22  git checkout main
+   23  git merge BR_Q2
+   24  git push origin main
+   25  git push origin BR_Q2
+   26  cd Work/Q2
+   27  pip uninstall -y matplotlib
+   28  touch plant_plots.py
+   29  touch requirements.txt
+   30  clear
+   31  pip install requirements.txt 
+   32  clear
+   33  pip install -r requirements.txt 
+   34  python3 plant_plots.py --plant "Tulip" --height 30 35 40 42 --leaf_count 12 15 18 20 --dry_weight 1.5 1.6 1.7 1.8
+   35  mkdir Diagrams_2
+   36  mv *.png Diagrams_2/
+   37  tar -czf ../../BACKUPS/diagrams2_$(date +"%Y%m%d_%H%M%S").zip Diagrams_2/
+   38  history > linux_history.log
