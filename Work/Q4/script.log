@@ -1,0 +1,17 @@
+2025-03-09 17:17:55 - Starting plant processing script...
+2025-03-09 17:17:55 - Using CSV file: ../Q3/plants1.csv
+2025-03-09 17:17:55 - Creating virtual environment...
+2025-03-09 17:18:00 - Virtual environment activated.
+2025-03-09 17:18:00 - Warning: requirements.txt not found. Skipping installation.
+2025-03-09 17:18:00 - Processing CSV file: ../Q3/plants1.csv
+2025-03-09 17:18:00 - Running Python script for plant: Rose
+2025-03-09 17:18:00 - Error: Failed to generate plots for Rose
+2025-03-09 17:18:00 - Running Python script for plant: Tulip
+2025-03-09 17:18:01 - Error: Failed to generate plots for Tulip
+2025-03-09 17:18:01 - Running Python script for plant: Sunflower
+2025-03-09 17:18:01 - Error: Failed to generate plots for Sunflower
+2025-03-09 17:18:01 - Running Python script for plant: Daffodil
+2025-03-09 17:18:01 - Error: Failed to generate plots for Daffodil
+2025-03-09 17:18:01 - Running Python script for plant: Lily
+2025-03-09 17:18:01 - Error: Failed to generate plots for Lily
+2025-03-09 17:18:01 - Error: Failed to create backup!

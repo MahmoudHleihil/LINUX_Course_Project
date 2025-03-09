@@ -1,0 +1,11 @@
+python3: can't open file '/root/LINUX_Course_Project/Work/Q4/plant_plots.py': [Errno 2] No such file or directory
+2025-03-09 17:18:00 - Error: Failed to generate plots for Rose
+python3: can't open file '/root/LINUX_Course_Project/Work/Q4/plant_plots.py': [Errno 2] No such file or directory
+2025-03-09 17:18:01 - Error: Failed to generate plots for Tulip
+python3: can't open file '/root/LINUX_Course_Project/Work/Q4/plant_plots.py': [Errno 2] No such file or directory
+2025-03-09 17:18:01 - Error: Failed to generate plots for Sunflower
+python3: can't open file '/root/LINUX_Course_Project/Work/Q4/plant_plots.py': [Errno 2] No such file or directory
+2025-03-09 17:18:01 - Error: Failed to generate plots for Daffodil
+python3: can't open file '/root/LINUX_Course_Project/Work/Q4/plant_plots.py': [Errno 2] No such file or directory
+2025-03-09 17:18:01 - Error: Failed to generate plots for Lily
+2025-03-09 17:18:01 - Error: Failed to create backup!
