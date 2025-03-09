@@ -1,17 +1,18 @@
-2025-03-09 17:17:55 - Starting plant processing script...
-2025-03-09 17:17:55 - Using CSV file: ../Q3/plants1.csv
-2025-03-09 17:17:55 - Creating virtual environment...
-2025-03-09 17:18:00 - Virtual environment activated.
-2025-03-09 17:18:00 - Warning: requirements.txt not found. Skipping installation.
-2025-03-09 17:18:00 - Processing CSV file: ../Q3/plants1.csv
-2025-03-09 17:18:00 - Running Python script for plant: Rose
-2025-03-09 17:18:00 - Error: Failed to generate plots for Rose
-2025-03-09 17:18:00 - Running Python script for plant: Tulip
-2025-03-09 17:18:01 - Error: Failed to generate plots for Tulip
-2025-03-09 17:18:01 - Running Python script for plant: Sunflower
-2025-03-09 17:18:01 - Error: Failed to generate plots for Sunflower
-2025-03-09 17:18:01 - Running Python script for plant: Daffodil
-2025-03-09 17:18:01 - Error: Failed to generate plots for Daffodil
-2025-03-09 17:18:01 - Running Python script for plant: Lily
-2025-03-09 17:18:01 - Error: Failed to generate plots for Lily
-2025-03-09 17:18:01 - Error: Failed to create backup!
+2025-03-09 18:01:27 - Starting plant processing script...
+2025-03-09 18:01:27 - Using CSV file: ../Q3/plants1.csv
+2025-03-09 18:01:27 - Creating virtual environment...
+2025-03-09 18:01:32 - Virtual environment activated.
+2025-03-09 18:01:32 - Installing dependencies from requirements.txt...
+2025-03-09 18:01:50 - Processing CSV file: ../Q3/plants1.csv
+2025-03-09 18:01:50 - Running Python script for plant: Rose
+2025-03-09 18:01:51 - Successfully generated plots for Rose
+2025-03-09 18:01:51 - Running Python script for plant: Tulip
+2025-03-09 18:01:53 - Successfully generated plots for Tulip
+2025-03-09 18:01:53 - Running Python script for plant: Sunflower
+2025-03-09 18:01:55 - Successfully generated plots for Sunflower
+2025-03-09 18:01:55 - Running Python script for plant: Daffodil
+2025-03-09 18:01:56 - Successfully generated plots for Daffodil
+2025-03-09 18:01:56 - Running Python script for plant: Lily
+2025-03-09 18:01:58 - Successfully generated plots for Lily
+2025-03-09 18:01:58 - Backup created successfully: Backups/Backup_20250309_180158.zip
+2025-03-09 18:01:58 - Script execution completed.

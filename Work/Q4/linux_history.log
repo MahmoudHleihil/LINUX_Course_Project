@@ -1,0 +1,8 @@
+   71  git checkout -b BR_Q4
+   72  cd Work/Q4
+   98  touch process_plants.sh
+   99  chmod 755 process_plants.sh 
+  100  touch requirements.txt
+  101  clear
+  102  ./process_plants.sh ../Q3/plants1.csv 
+  103  history > linux_history.log
