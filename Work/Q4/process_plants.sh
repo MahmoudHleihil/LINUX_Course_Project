@@ -1,16 +1,33 @@
 #!/bin/bash
 
-# Set variables
-CSV_FILE="$1"
+# Default variables
+CSV_FILE=""
 LOG_FILE="script.log"
 ERROR_LOG="error.log"
 DIAGRAMS_DIR="Diagrams"
 BACKUP_DIR="Backups"
 VENV_DIR=".venv"
+PYTHON_SCRIPT="../Q2/plant_plots.py"
+CLEAN=false
+HISTORY=false
 
 # Function to log messages
 log() {
     echo "$(date +"%Y-%m-%d %H:%M:%S") - $1" | tee -a "$LOG_FILE"
+}
+
+# Function to parse arguments
+parse_args() {
+    while [[ "$#" -gt 0 ]]; do
+        case "$1" in
+            --csv|-p) CSV_FILE="$2"; shift ;;
+            --diagrams|-d) DIAGRAMS_DIR="$2"; shift ;;
+            --backup|-b) BACKUP_DIR="$2"; shift ;;
+            --venv) VENV_DIR="$2"; shift ;;
+            *) log "Unknown parameter: $1"; exit 1 ;;
+        esac
+        shift
+    done
 }
 
 # Function to find the nearest CSV file if none is provided
@@ -28,7 +45,7 @@ find_csv_file() {
 # Function to set up the virtual environment
 setup_venv() {
     if [[ ! -d "$VENV_DIR" ]]; then
-        log "Creating virtual environment..."
+        log "Creating virtual environment in $VENV_DIR..."
         python3 -m venv "$VENV_DIR"
         if [[ $? -ne 0 ]]; then
             log "Error: Failed to create virtual environment!" | tee -a "$ERROR_LOG"
@@ -43,7 +60,7 @@ setup_venv() {
     # Install required dependencies
     if [[ -f "requirements.txt" ]]; then
         log "Installing dependencies from requirements.txt..."
-        pip install -r requirements.txt
+        pip install -r requirements.txt &>> "$LOG_FILE"
         if [[ $? -ne 0 ]]; then
             log "Error: Failed to install dependencies!" | tee -a "$ERROR_LOG"
             exit 1
@@ -59,27 +76,29 @@ process_csv() {
     mkdir -p "$DIAGRAMS_DIR"
 
     tail -n +2 "$CSV_FILE" | while IFS=, read -r plant heights leaf_counts dry_weights; do
-        # Remove quotes from fields
-        plant=$(echo "$plant" | tr -d '"')
-        heights=$(echo "$heights" | tr -d '"')
-        leaf_counts=$(echo "$leaf_counts" | tr -d '"')
-        dry_weights=$(echo "$dry_weights" | tr -d '"')
+        plant=$(echo "$plant" | tr -d '"' | xargs)
+        heights=$(echo "$heights" | tr -d '"' | xargs)
+        leaf_counts=$(echo "$leaf_counts" | tr -d '"' | xargs)
+        dry_weights=$(echo "$dry_weights" | tr -d '"' | xargs)
 
-        # Skip empty lines
         if [[ -z "$plant" || -z "$heights" || -z "$leaf_counts" || -z "$dry_weights" ]]; then
             continue
         fi
 
-        # Create directory for plant diagrams
         PLANT_DIR="$DIAGRAMS_DIR/$plant"
         mkdir -p "$PLANT_DIR"
 
-        # Run the Python script
         log "Running Python script for plant: $plant"
-        python3 ../Q2/plant_plots.py --plant "$plant" --height $heights --leaf_count $leaf_counts --dry_weight $dry_weights > "$PLANT_DIR/output.log" 2>>"$ERROR_LOG"
+        python3 "$PYTHON_SCRIPT" --plant "$plant" --height $heights --leaf_count $leaf_counts --dry_weight $dry_weights > "$PLANT_DIR/output.log" 2>>"$ERROR_LOG"
 
-        mv "${plant}_scatter.png" "${plant}_histogram.png" "${plant}_line_plot.png" "$PLANT_DIR/" 2>/dev/null
-        
+        for img in "${plant}_scatter.png" "${plant}_histogram.png" "${plant}_line_plot.png"; do
+            if [[ -f "$img" ]]; then
+                mv "$img" "$PLANT_DIR/"
+            else
+                log "Warning: Missing expected plot file $img" | tee -a "$ERROR_LOG"
+            fi
+        done
+
         if [[ $? -eq 0 ]]; then
             log "Successfully generated plots for $plant"
         else
@@ -91,7 +110,7 @@ process_csv() {
 # Function to create a backup of all generated diagrams
 create_backup() {
     TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-    BACKUP_FILE="$BACKUP_DIR/Backup_$TIMESTAMP.zip"
+    BACKUP_FILE="$BACKUP_DIR/Backup_$TIMESTAMP.tar.gz"
 
     mkdir -p "$BACKUP_DIR"
     tar -czf "$BACKUP_FILE" "$DIAGRAMS_DIR" > /dev/null 2>&1
@@ -106,6 +125,7 @@ create_backup() {
 
 # Main script execution
 log "Starting plant processing script..."
+parse_args "$@"
 find_csv_file
 setup_venv
 process_csv

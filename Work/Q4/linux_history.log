@@ -6,3 +6,10 @@
   101  clear
   102  ./process_plants.sh ../Q3/plants1.csv 
   103  history > linux_history.log
+  104  git add .
+  105  git commit -m "Q4 - Processed plant data and created backup"
+  106  git push origin BR_Q4
+  107  rm Backups/*
+  109  clear
+  110  ./process_plants.sh --csv ../Q3/plants1.csv --diagrams Results --backup Backups
+  111  history > linux_history.log
