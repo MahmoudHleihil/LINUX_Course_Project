@@ -117,7 +117,6 @@ create_backup() {
 
     if [[ $? -eq 0 ]]; then
         log "Backup created successfully: $BACKUP_FILE"
-        rm -rf "$DIAGRAMS_DIR"
     else
         log "Error: Failed to create backup!" | tee -a "$ERROR_LOG"
     fi
