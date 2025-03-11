@@ -1,0 +1,7 @@
+  169  touch Dockerfile
+  170  cp ../Q2/plant_plots.py .
+  171  cp ../Q2/requirements.txt .
+  181  docker build -t plant_plotter .
+  182  clear
+  183  docker run --rm -v $(pwd)/shared:/output plant_plotter --plant Daisy --height 50 55 60 65 --leaf_count 20 25 30 35 --dry_weight 1.5 1.7 1.9 2.1
+  184  history > ~/LINUX_Course_Project/Work/Q5/docker_history.log
