@@ -9,3 +9,33 @@
   157  docker cp Q5_container:combined.png .
   158  docker cp Q5_container:container_history.log .
   165  history > linux_history.log
+  166  git add .
+  167  git commit -m "Q5 - Added diagrams and history from Docker container"
+  168  git push origin BR_Q5
+  169  touch Dockerfile
+  170  cp ../Q2/plant_plots.py .
+  171  cp ../Q2/requirements.txt .
+  172  docker build -t plant_plotter .
+  182  clear
+  183  docker run --rm -v $(pwd)/shared:/output plant_plotter --plant Daisy --height 50 55 60 65 --leaf_count 20 25 30 35 --dry_weight 1.5 1.7 1.9 2.1
+  184  history > ~/LINUX_Course_Project/Work/Q5/docker_history.log
+  185  git add .
+  186  git commit -m "Q5 - Added Docker container setup for running Python with parameters"
+  187  git push origin BR_Q5
+  188  touch WatermarkAdder.java
+  189  mkdir JAVA
+  190  touch JAVA/Dockerfile
+  191  mv WatermarkAdder.java JAVA/
+  192  cd JAVA/
+  193  docker build -t watermark_adder -f Dockerfile .
+  199  cd ..
+  201  clear
+  202  docker run --rm -v $(pwd)/shared:/images watermark_adder /images "Mahmoud Hleihil - ID 322244633"
+  203  touch run_pipeline.sh
+  204  chmod 755 run_pipeline.sh 
+  205  mv JAVA/Dockerfile.java 
+  206  mv JAVA/Dockerfile.java .
+  207  mv JAVA/WatermarkAdder.java .
+  210  clear
+  211  ./run_pipeline.sh 
+  212  history >> linux_history.log 
