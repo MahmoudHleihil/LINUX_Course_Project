@@ -1,0 +1,11 @@
+  128  mkdir Q5
+  129  cd Q5/
+  130  git checkout -b BR_Q5
+  150  clear
+  151  docker run -it --name Q5_container ubuntu bash
+  152  docker start -ai my_container Q5_container
+  153  docker start -ai Q5_container
+  154  clear
+  157  docker cp Q5_container:combined.png .
+  158  docker cp Q5_container:container_history.log .
+  165  history > linux_history.log
