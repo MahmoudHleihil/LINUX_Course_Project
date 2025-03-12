@@ -1,0 +1,8 @@
+Plant: Lavender
+Height data: [60.0, 65.0, 70.0, 75.0] cm
+Leaf count data: [25, 30, 35, 40]
+Dry weight data: [1.8, 2.0, 2.3, 2.5] g
+Generated plots for Lavender:
+Scatter plot saved as Lavender_scatter.png
+Histogram saved as Lavender_histogram.png
+Line plot saved as Lavender_line_plot.png

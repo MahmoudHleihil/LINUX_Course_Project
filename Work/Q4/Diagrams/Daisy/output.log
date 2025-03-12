@@ -1,0 +1,8 @@
+Plant: Daisy
+Height data: [50.0, 55.0, 60.0, 65.0] cm
+Leaf count data: [20, 25, 30, 35]
+Dry weight data: [1.5, 1.7, 1.9, 2.1] g
+Generated plots for Daisy:
+Scatter plot saved as Daisy_scatter.png
+Histogram saved as Daisy_histogram.png
+Line plot saved as Daisy_line_plot.png

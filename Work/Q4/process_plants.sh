@@ -5,7 +5,7 @@ CSV_FILE=""
 LOG_FILE="script.log"
 ERROR_LOG="error.log"
 DIAGRAMS_DIR="Diagrams"
-BACKUP_DIR="Backups"
+BACKUP_DIR="../../BACKUPS"
 VENV_DIR=".venv"
 PYTHON_SCRIPT="../Q2/plant_plots.py"
 CLEAN=false
@@ -110,7 +110,7 @@ process_csv() {
 # Function to create a backup of all generated diagrams
 create_backup() {
     TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-    BACKUP_FILE="$BACKUP_DIR/Backup_$TIMESTAMP.tar.gz"
+    BACKUP_FILE="$BACKUP_DIR/Backup_$TIMESTAMP.zip"
 
     mkdir -p "$BACKUP_DIR"
     tar -czf "$BACKUP_FILE" "$DIAGRAMS_DIR" > /dev/null 2>&1
